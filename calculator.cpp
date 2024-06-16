@@ -48,6 +48,13 @@ T remainder (T a, T b)
 	return a - b * floor(a/b);
 }
 
+template <typename T>
+
+T power (T a, T b)
+{
+	return pow(a,b);
+}
+
 int main() 
 {
 	cout << " \t\t\t\t\t ##### CODSOFT INTERNSHIP ##### \n" ;
@@ -61,54 +68,59 @@ int main()
   
   while(1)  
   {
-    cout << "\n Enter two operands: \n ";
-    cin >> num1;
-	cin >> num2;
-
-    cout << "\n Enter any operator: ";
-    cin >> op;
+     cout << "\n Enter two operands: \n ";
+     cin >> num1;
+     cin >> num2;
+	 
+     cout << "\n Enter any operator: ";
+     cin >> op;
 	
     switch (op) 
-	{
-        case '+':
+    {
+       case '+':
               cout << "\n Sum => \t" << add(num1,num2);
               break;
             
-        case '-':
+       case '-':
               cout << "\n Difference => \t" <<  subtract(num1,num2);
               break;
             
-        case '*':
+       case '*':
               cout << "\n Product => \t" <<  multiply(num1,num2);       
-			  break;
+	      break;
             
-        case '/':
+       case '/':
               try 
-			  {
+	      {
                 cout << "\n Quotient => \t" << divide(num1,num2); 
               } 
             
-			  catch (const invalid_argument& e) 
-			  {
+	      catch (const invalid_argument& e) 
+	      {
                  cerr << e.what() << endl;			// Explains the exception
               }
               break;
         
-		case '%':
-			  try
-			  {
-			    cout << "\n Remainder => \t" << remainder(num1,num2);
-			  }
+	case '%':
+			
+	     try
+	     {
+		 cout << "\n Remainder => \t" << remainder(num1,num2);
+	     }
 			  
-			  catch (const invalid_argument& e) 
-			  {
+	     catch (const invalid_argument& e) 
+	      {
                  cerr << e.what() << endl;		   // Explains the exception
               }
               break;
+              
+        case '^':
+                cout << "\n Power => \t" << power(num1,num2);
+        	break;
         
-		default:
+	default:
               cout << "Invalid Operand !! Please enter again properly ! "<< endl;
-            break;
+              break;
    }
  }
     return 0;
